@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dear Jolie — Chiến Lược Thâm Nhập Thị Trường 2027</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root{
+--ink:#2B1B2E;--berry:#6D2E46;--rose:#A26769;--gold:#C9A66B;
+--pearl:#EDE4DA;--cream:#F7F4F1;--white:#FAFAF8;--muted:#8A7E86;
+--font-display:'Cormorant Garamond',serif;
+--font-body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-body);color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* ─── UTILITY ─── */
+.container{max-width:1140px;margin:0 auto;padding:0 2rem}
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+.fade-in-left{opacity:0;transform:translateX(-40px);transition:opacity .7s ease,transform .7s ease}
+.fade-in-left.visible{opacity:1;transform:translateX(0)}
+.fade-in-right{opacity:0;transform:translateX(40px);transition:opacity .7s ease,transform .7s ease}
+.fade-in-right.visible{opacity:1;transform:translateX(0)}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(250,250,248,.95);backdrop-filter:blur(12px);box-shadow:0 1px 20px rgba(43,27,46,.06)}
+nav .brand{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--berry);letter-spacing:.15em;text-transform:uppercase}
+nav .nav-links{display:flex;gap:1.8rem;list-style:none}
+nav .nav-links a{font-size:.72rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:.12em;text-transform:uppercase;transition:color .3s}
+nav .nav-links a:hover{color:var(--berry)}
+@media(max-width:768px){nav .nav-links{display:none}}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--ink);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-30%;right:-20%;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(109,46,70,.3) 0%,transparent 70%);animation:float 12s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-10%;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(201,166,107,.15) 0%,transparent 70%);animation:float 15s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:820px;padding:2rem}
+.hero-eyebrow{font-family:var(--font-body);font-size:.7rem;font-weight:500;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .3s forwards}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.6rem,6vw,4.8rem);font-weight:300;color:var(--white);line-height:1.15;margin-bottom:1.5rem;opacity:0;animation:fadeUp .8s .5s forwards}
+.hero h1 em{font-style:italic;background:linear-gradient(90deg,var(--gold),var(--rose),var(--gold));background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4s linear infinite}
+.hero-sub{font-size:.95rem;color:var(--pearl);line-height:1.8;max-width:580px;margin:0 auto 2.5rem;opacity:0;animation:fadeUp .8s .7s forwards;font-weight:300}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;opacity:0;animation:fadeUp .8s .9s forwards}
+.hero-tags span{font-size:.65rem;letter-spacing:.1em;color:var(--rose);border:1px solid rgba(162,103,105,.3);padding:.4rem 1rem;border-radius:2px;text-transform:uppercase}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─── SECTION STYLES ─── */
+section{padding:6rem 0}
+section.dark{background:var(--ink);color:var(--pearl)}
+section.cream{background:var(--cream)}
+section.pearl-bg{background:var(--pearl)}
+.section-eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--rose);margin-bottom:.8rem}
+.dark .section-eyebrow{color:var(--gold)}
+.section-title{font-family:var(--font-display);font-size:clamp(2rem,4vw,3rem);font-weight:400;line-height:1.2;margin-bottom:1rem}
+.section-lead{font-size:.95rem;color:var(--muted);line-height:1.8;max-width:680px;margin-bottom:3rem;font-weight:300}
+.dark .section-lead{color:var(--pearl);opacity:.8}
+
+/* ─── CARDS ─── */
+.card-grid{display:grid;gap:1.5rem}
+.card-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.card-grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.card-grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.card-grid.cols-5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.card-grid.cols-3,.card-grid.cols-4,.card-grid.cols-5{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.card-grid.cols-2,.card-grid.cols-3,.card-grid.cols-4,.card-grid.cols-5{grid-template-columns:1fr}}
+
+.card{background:var(--white);border:1px solid rgba(43,27,46,.06);padding:2rem;border-radius:4px;transition:transform .3s,box-shadow .3s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(43,27,46,.08)}
+.dark .card{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.08)}
+.dark .card:hover{background:rgba(255,255,255,.07)}
+.card-number{font-family:var(--font-display);font-size:2.4rem;font-weight:300;color:var(--gold);margin-bottom:.5rem}
+.card-label{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:.8rem}
+.card h3{font-family:var(--font-display);font-size:1.3rem;font-weight:600;margin-bottom:.6rem}
+.card p{font-size:.85rem;line-height:1.7;color:var(--muted)}
+.dark .card p{color:rgba(237,228,218,.7)}
+.card.highlight{border-color:var(--gold);background:linear-gradient(135deg,rgba(201,166,107,.04),rgba(237,228,218,.08))}
+.dark .card.highlight{background:rgba(201,166,107,.08);border-color:var(--gold)}
+
+/* ─── TABLE ─── */
+.styled-table{width:100%;border-collapse:collapse;font-size:.85rem;margin:2rem 0}
+.styled-table th{text-align:left;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);padding:.8rem 1rem;border-bottom:2px solid var(--berry);font-weight:600}
+.styled-table td{padding:.8rem 1rem;border-bottom:1px solid rgba(43,27,46,.06);vertical-align:top;line-height:1.6}
+.styled-table tr:hover{background:rgba(201,166,107,.04)}
+.dark .styled-table th{color:var(--gold);border-bottom-color:var(--gold)}
+.dark .styled-table td{border-bottom-color:rgba(255,255,255,.06);color:var(--pearl)}
+
+/* ─── STATS ROW ─── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin:3rem 0}
+@media(max-width:700px){.stats-row{grid-template-columns:repeat(2,1fr)}}
+.stat{text-align:center;padding:2rem 1rem}
+.stat-value{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--berry)}
+.dark .stat-value{color:var(--gold)}
+.stat-label{font-size:.75rem;color:var(--muted);margin-top:.4rem;line-height:1.5}
+.dark .stat-label{color:var(--pearl);opacity:.7}
+
+/* ─── TIMELINE ─── */
+.timeline{position:relative;padding-left:2rem;margin:2.5rem 0}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold),var(--rose),transparent)}
+.timeline-item{position:relative;padding:0 0 2.5rem 2rem}
+.timeline-item::before{content:'';position:absolute;left:-4.5px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--berry);border:2px solid var(--white)}
+.dark .timeline-item::before{border-color:var(--ink)}
+.timeline-item h4{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:.3rem}
+.timeline-item .time{font-size:.7rem;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:.4rem;display:block}
+.timeline-item p{font-size:.85rem;color:var(--muted);line-height:1.7}
+
+/* ─── SPLIT LAYOUT ─── */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+@media(max-width:800px){.split{grid-template-columns:1fr;gap:2rem}}
+.split-visual{position:relative}
+.split-visual .glow-box{background:linear-gradient(135deg,var(--pearl),var(--cream));border-radius:8px;padding:3rem;position:relative;overflow:hidden}
+.split-visual .glow-box::after{content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(201,166,107,.1) 0%,transparent 50%);animation:float 10s ease-in-out infinite}
+.dark .split-visual .glow-box{background:linear-gradient(135deg,rgba(109,46,70,.15),rgba(43,27,46,.4))}
+
+/* ─── BUDGET BAR ─── */
+.budget-bar{display:flex;height:36px;border-radius:4px;overflow:hidden;margin:1.5rem 0}
+.budget-bar div{display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:600;color:var(--white);letter-spacing:.05em;transition:flex .6s ease}
+.budget-legend{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1rem}
+.budget-legend span{font-size:.75rem;display:flex;align-items:center;gap:.4rem}
+.budget-legend span::before{content:'';width:10px;height:10px;border-radius:2px;display:inline-block}
+
+/* ─── PROCESS ─── */
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin:2rem 0}
+@media(max-width:700px){.process-steps{grid-template-columns:repeat(2,1fr)}}
+.process-step{text-align:center;padding:1.5rem 1rem;background:var(--cream);border-radius:4px;position:relative}
+.process-step .step-num{font-family:var(--font-display);font-size:1.8rem;color:var(--gold);font-weight:300}
+.process-step p{font-size:.8rem;color:var(--muted);margin-top:.5rem;line-height:1.5}
+
+/* ─── FOOTER ─── */
+footer{background:var(--ink);padding:3rem 0;text-align:center}
+footer p{font-size:.75rem;color:var(--muted);letter-spacing:.05em}
+
+/* ─── SCALLOP DIVIDER ─── */
+.scallop-divider{text-align:center;padding:1.5rem 0;opacity:.3}
+.scallop-divider svg{width:80px;height:auto}
+
+/* ─── TA PROFILE ─── */
+.ta-profile{display:grid;grid-template-columns:200px 1fr;gap:2rem;padding:2.5rem;border:1px solid rgba(43,27,46,.06);border-radius:4px;margin-bottom:2rem;background:var(--white)}
+@media(max-width:700px){.ta-profile{grid-template-columns:1fr}}
+.ta-avatar{width:100%;aspect-ratio:1;border-radius:4px;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:3rem;font-weight:300;color:var(--white)}
+.ta-layers{margin-top:1rem}
+.ta-layers .layer{padding:.8rem 0;border-bottom:1px solid rgba(43,27,46,.06)}
+.ta-layers .layer:last-child{border:0}
+.ta-layers .layer-name{font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);font-weight:600;margin-bottom:.3rem}
+.ta-layers .layer p{font-size:.85rem;line-height:1.7;color:var(--muted)}
+.ta-insight{margin-top:1.2rem;padding:1rem 1.5rem;background:var(--pearl);border-radius:4px;font-family:var(--font-display);font-size:1.1rem;font-style:italic;color:var(--berry);line-height:1.6}
+
+/* ─── RISK MATRIX ─── */
+.risk-item{display:flex;gap:1rem;padding:1.2rem 0;border-bottom:1px solid rgba(43,27,46,.06);align-items:flex-start}
+.risk-badge{flex-shrink:0;width:60px;height:28px;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;color:var(--white);letter-spacing:.05em}
+.risk-badge.critical{background:#C0392B}
+.risk-badge.high{background:var(--berry)}
+.risk-badge.medium{background:var(--gold);color:var(--ink)}
+.risk-content h4{font-size:.9rem;font-weight:600;margin-bottom:.2rem}
+.risk-content p{font-size:.8rem;color:var(--muted);line-height:1.6}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="brand">Dear Jolie</div>
+  <ul class="nav-links">
+    <li><a href="#market">Thị trường</a></li>
+    <li><a href="#audience">Khách hàng</a></li>
+    <li><a href="#gifting">Gifting</a></li>
+    <li><a href="#kol">KOL</a></li>
+    <li><a href="#budget">Ngân sách</a></li>
+    <li><a href="#team">Vận hành</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Dear Jolie by JoliPoli · Chiến lược 2027</p>
+    <h1>Haute Couture Ritual<br>cho <em>bàn phấn mỗi sáng</em></h1>
+    <p class="hero-sub">Báo cáo chiến lược thâm nhập thị trường mỹ phẩm trang điểm cao cấp Việt Nam. Target GMV 150 tỷ VNĐ · Ngân sách 32 tỷ · WOM-first framework.</p>
+    <div class="hero-tags">
+      <span>TikTok 60% Revenue</span>
+      <span>100% Gift Box</span>
+      <span>Khắc Laser Tên</span>
+      <span>Dual-Engine Strategy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 1–4: MARKET + STRATEGY (condensed) ═══ -->
+<section id="market">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Thị trường & Chiến lược</p>
+    <h2 class="section-title fade-in">Bức tranh thị trường mỹ phẩm Việt Nam</h2>
+    <p class="section-lead fade-in">Thị trường Beauty & Personal Care VN đạt 2,4–2,66 tỷ USD (2024), dự báo lên 2,7–3,5 tỷ USD (2027). Tầng lớp trung lưu mở rộng lên 26% dân số. TikTok Shop tăng trưởng 93–148%/năm.</p>
+
+    <div class="stats-row fade-in">
+      <div class="stat"><div class="stat-value">450M$</div><div class="stat-label">TAM — Ngành trang điểm VN</div></div>
+      <div class="stat"><div class="stat-value">81M$</div><div class="stat-label">SAM — Premium/Luxury</div></div>
+      <div class="stat"><div class="stat-value">150 tỷ</div><div class="stat-label">SOM target — GMV 2027</div></div>
+      <div class="stat"><div class="stat-value">8.3%</div><div class="stat-label">CAGR 2024–2028</div></div>
+    </div>
+
+    <div class="card-grid cols-3 fade-in">
+      <div class="card">
+        <div class="card-label">Tầng 1 — Chức năng</div>
+        <h3>Tropical-Proof Formula</h3>
+        <p>Magfixing 0.06μm — sản phẩm duy nhất R&D riêng cho khí hậu nhiệt đới VN. Demo "12h challenge" trong nắng HCM. Claim mà YSL/Dior không thể làm.</p>
+      </div>
+      <div class="card highlight">
+        <div class="card-label">Tầng 2 — Cảm xúc</div>
+        <h3>Every Product is a Gift</h3>
+        <p>100% SKU có Gift Box riêng. Mở hộp = nghi thức, không phải mua hàng. Bao bì Scallop + Gothic Heart + Mother-of-Pearl. UGC tự nhiên từ unboxing.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Tầng 3 — Câu chuyện</div>
+        <h3>From Couture to Vanity</h3>
+        <p>Di sản 16 năm JoliPoli. Phạm Băng Băng, Nicki Minaj chọn váy — giờ cùng tinh thần trên bàn phấn bạn. "Daily Haute Couture Ritual."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 5: TARGET AUDIENCE ═══ -->
+<section class="cream" id="audience">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Dual Target Audience</p>
+    <h2 class="section-title fade-in">Hai nhóm khách hàng,<br>hai lý do mua hoàn toàn khác</h2>
+    <p class="section-lead fade-in">Dear Jolie vận hành trên Dual-Engine Strategy — hai engine chạy song song, bổ sung cho nhau, phủ cả 365 ngày trong năm.</p>
+
+    <div class="ta-profile fade-in">
+      <div>
+        <div class="ta-avatar" style="background:linear-gradient(135deg,var(--berry),var(--rose))">♀</div>
+        <div style="text-align:center;margin-top:1rem">
+          <div style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);font-weight:600">55–65% GMV</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.2rem">Quanh năm</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:.2rem">TA1: The Collector</h3>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem">Nữ 24–34 · Thu nhập 15–40 triệu · HCM/HN/Đà Nẵng · Đã dùng 3CE/Romand/MAC, muốn "lên đời"</p>
+        <div class="ta-layers">
+          <div class="layer"><div class="layer-name">Lớp 1 — Functional</div><p>Cần kiềm dầu 7h sáng đến 7h tối, không retouch. Điều kiện cần, nhưng chưa đủ để trả 800K.</p></div>
+          <div class="layer"><div class="layer-name">Lớp 2 — Identity</div><p>Sản phẩm trên bàn phấn nói lên cô ấy là ai. Đồng nghiệp nhìn thấy Dear Jolie trên bàn, bạn bè thấy cô ấy touch-up son lúc lunch. Bao bì = phụ kiện thời trang.</p></div>
+          <div class="layer"><div class="layer-name">Lớp 3 — Collection</div><p>Không mua một sản phẩm — curate bộ sưu tập. Bàn phấn = "tủ Haute Couture thu nhỏ." Gift Box xếp hàng trên kệ. Limited edition mỗi mùa → FOMO → sưu tập.</p></div>
+        </div>
+        <div class="ta-insight">"Tôi không mua mỹ phẩm — tôi curate bàn phấn của mình."</div>
+      </div>
+    </div>
+
+    <div class="ta-profile fade-in">
+      <div>
+        <div class="ta-avatar" style="background:linear-gradient(135deg,var(--ink),var(--gold))">♂</div>
+        <div style="text-align:center;margin-top:1rem">
+          <div style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rose);font-weight:600">30–45% GMV</div>
+          <div style="font-size:.75rem;color:var(--muted);margin-top:.2rem">5 dịp lễ/năm</div>
+        </div>
+      </div>
+      <div>
+        <h3 style="font-family:var(--font-display);font-size:1.6rem;font-weight:600;margin-bottom:.2rem">TA2: The Gentleman Giver</h3>
+        <p style="font-size:.85rem;color:var(--muted);margin-bottom:1rem">Nam 24–40 · Thu nhập 18–50 triệu · Có bạn gái/vợ/mẹ · Không biết gì về mỹ phẩm — và không muốn biết</p>
+        <div class="ta-layers">
+          <div class="layer"><div class="layer-name">Lớp 1 — Relief</div><p>Giải quyết "bài toán quà" nhanh, đẹp, an toàn. Gift Box khắc tên = hoàn hảo. Không cần biết Magfixing là gì.</p></div>
+          <div class="layer"><div class="layer-name">Lớp 2 — Status</div><p>Cô ấy mở quà trước bạn bè, "wow" = anh ta được ghi nhận là người đàn ông có gu. Gift Box = social proof cho anh ta.</p></div>
+          <div class="layer"><div class="layer-name">Lớp 3 — Emotional</div><p>"Dear Linh" khắc trên hộp = "anh đã nghĩ đến em" — dù thực tế chọn trong 5 phút. Giá trị chuyển khoản không tạo được.</p></div>
+        </div>
+        <div class="ta-insight">"Tôi không mua mỹ phẩm — tôi mua sự nhẹ nhõm khi biết cô ấy sẽ vui."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 6-7: TAGLINE + WOM (condensed) ═══ -->
+<section class="dark">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Messaging & WOM Strategy</p>
+    <h2 class="section-title fade-in" style="color:var(--white)">WOM-first — Luxury không mua<br>awareness bằng tiền</h2>
+
+    <div class="split fade-in" style="margin:3rem 0">
+      <div>
+        <div style="font-size:.65rem;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;font-weight:600;margin-bottom:1rem">Brand Tagline</div>
+        <h3 style="font-family:var(--font-display);font-size:2.2rem;color:var(--white);font-weight:400;font-style:italic;line-height:1.3;margin-bottom:1.5rem">"Dear Jolie — A Gift You Deserve"</h3>
+        <p style="font-size:.85rem;color:var(--pearl);opacity:.8;line-height:1.8;margin-bottom:1.5rem">TA1 đọc: "quà tôi tự tặng mình mỗi ngày." TA2 đọc: "quà tôi tặng cô ấy." Chữ "Dear" = tính chất gửi tặng, khai thác triệt để.</p>
+      </div>
+      <div>
+        <div class="card" style="border-color:rgba(201,166,107,.2)">
+          <div class="card-label">4 Cơ chế Viral</div>
+          <div style="display:grid;gap:1rem;margin-top:.5rem">
+            <div><strong style="color:var(--gold);font-size:.8rem">Product as Content</strong><br><span style="font-size:.8rem;color:rgba(237,228,218,.6)">Gift Box đẹp → khách tự quay unboxing miễn phí</span></div>
+            <div><strong style="color:var(--gold);font-size:.8rem">Social Currency</strong><br><span style="font-size:.8rem;color:rgba(237,228,218,.6)">Chụp bàn phấn → 500 comment "cho xin link"</span></div>
+            <div><strong style="color:var(--gold);font-size:.8rem">Reaction Content</strong><br><span style="font-size:.8rem;color:rgba(237,228,218,.6)">"Tặng bạn gái Dear Jolie — đây là phản ứng"</span></div>
+            <div><strong style="color:var(--gold);font-size:.8rem">Scarcity Loop</strong><br><span style="font-size:.8rem;color:rgba(237,228,218,.6)">Limited edition mỗi quý → FOMO → desire bộ sau</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 8: MALE GIFT BUYER (DETAILED) ═══ -->
+<section id="gifting">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Phần 8 — Chi tiết</p>
+    <h2 class="section-title fade-in">Seasonal Gifting Engine<br>cho "người không biết chọn quà"</h2>
+    <p class="section-lead fade-in">Ngày 8/3, 20/10, Valentine — ai xếp hàng tại Juno, Vascara, Thế Giới Skinfood? Phần lớn là đàn ông. Và họ mua theo logic hoàn toàn khác phụ nữ.</p>
+
+    <div class="split fade-in" style="margin-bottom:3rem">
+      <div>
+        <h3 style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:1rem">Phễu mua nam giới: 3 phút</h3>
+        <p style="font-size:.9rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem">Đẹp? → Sang? → Bao nhiêu? → Gói sẵn? → Mua. Không quan tâm Magfixing — quan tâm "cô ấy mở ra có wow không." Hay chờ phút cuối, chạy ra cửa hàng gần nhất.</p>
+        <div style="font-size:.85rem;line-height:1.8;color:var(--muted)">Dear Jolie là giải pháp duy nhất trên thị trường: 100% Gift Box sẵn sàng tặng + khắc tên cá nhân hóa + giá 850K–2,2 triệu (đủ sang, không đau ví so với Dior). Chưa brand mỹ phẩm nào target segment này seriously.</div>
+      </div>
+      <div class="split-visual">
+        <div class="glow-box" style="text-align:center">
+          <div style="font-family:var(--font-display);font-size:.8rem;letter-spacing:.2em;color:var(--rose);text-transform:uppercase;margin-bottom:.5rem">So với lựa chọn hiện tại</div>
+          <div style="font-size:.85rem;color:var(--muted);line-height:2.2;text-align:left;padding:0 1rem">
+            <div>🌹 <strong>Hoa tươi</strong> → hết hạn 3 ngày</div>
+            <div>💰 <strong>Chuyển khoản</strong> → thiếu tâm ý</div>
+            <div>👜 <strong>Túi Juno/Vascara</strong> → ai cũng tặng</div>
+            <div>💄 <strong>Son YSL/Dior</strong> → 1,5 triệu, vẫn phải chọn màu</div>
+            <div style="margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(43,27,46,.1)">
+              <strong style="color:var(--berry)">✦ Dear Jolie Gift Box</strong><br>Sang, cá nhân hóa, an toàn,<br>xong trong 5 phút, 850K–2,2tr
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="fade-in" style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:1.5rem">Gift Set "No-Brainer" Bundles</h3>
+    <div class="card-grid cols-3 fade-in">
+      <div class="card">
+        <div class="card-number">850K</div>
+        <h3>"First Date"</h3>
+        <p style="margin-bottom:.8rem">Son best-seller + Phấn phủ mini</p>
+        <div style="font-style:italic;font-size:.8rem;color:var(--berry)">"Món quà đầu tiên không bao giờ sai"</div>
+      </div>
+      <div class="card highlight">
+        <div class="card-number">1.5tr</div>
+        <h3>"Dear Her"</h3>
+        <p style="margin-bottom:.8rem">Cushion + Son + Gift Card cá nhân hóa</p>
+        <div style="font-style:italic;font-size:.8rem;color:var(--berry)">"Khi bạn muốn nói nhiều hơn lời nói"</div>
+      </div>
+      <div class="card">
+        <div class="card-number">2.2tr</div>
+        <h3>"The Full Ritual"</h3>
+        <p style="margin-bottom:.8rem">Cushion + Phấn phủ + Son + Setting Spray</p>
+        <div style="font-style:italic;font-size:.8rem;color:var(--berry)">"Tặng cả một nghi thức — không chỉ một món đồ"</div>
+      </div>
+    </div>
+
+    <div class="fade-in" style="margin-top:3rem">
+      <h3 style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:1.5rem">Sizing tiềm năng — 43–67 tỷ GMV từ nam giới</h3>
+      <table class="styled-table">
+        <thead><tr><th>Dịp</th><th>Peak mua</th><th>GMV ước tính</th><th>Ghi chú</th></tr></thead>
+        <tbody>
+          <tr><td>Valentine</td><td>7–14/2</td><td><strong>8–12 tỷ</strong></td><td>Campaign đầu tiên</td></tr>
+          <tr><td>8/3</td><td>1–8/3</td><td><strong>12–18 tỷ</strong></td><td>Lớn nhất — đàn ông VN chi mạnh nhất</td></tr>
+          <tr><td>20/10</td><td>13–20/10</td><td><strong>10–15 tỷ</strong></td><td>Momentum đã build</td></tr>
+          <tr><td>Christmas</td><td>18–25/12</td><td><strong>8–12 tỷ</strong></td><td>Cạnh tranh nhiều category</td></tr>
+          <tr><td>Sinh nhật</td><td>Quanh năm</td><td><strong>5–10 tỷ</strong></td><td>D2C retargeting</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 9: LASER PERSONALIZATION (DETAILED) ═══ -->
+<section class="dark" id="personalization">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Phần 9 — Chi tiết</p>
+    <h2 class="section-title fade-in" style="color:var(--white)">Khắc laser tên — Biến sản phẩm<br>thành kỷ vật</h2>
+    <p class="section-lead fade-in">Chi phí 3.000–5.000 VNĐ/unit (0,4% giá SP) nhưng perceived value tăng vọt. Chưa brand mỹ phẩm nào tại VN offer dịch vụ này.</p>
+
+    <div class="split fade-in">
+      <div>
+        <h3 style="color:var(--white);font-family:var(--font-display);font-size:1.4rem;margin-bottom:1.5rem">Hybrid 2 tầng</h3>
+        <div style="margin-bottom:1.5rem">
+          <div style="font-size:.65rem;letter-spacing:.15em;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:.5rem">Tầng 1 — Mặc định</div>
+          <p style="font-size:.85rem;color:var(--pearl);opacity:.8;line-height:1.7">Laser CO2 trực tiếp lên nắp hộp. Máy xTool F1, khắc 10–30 giây/hộp. "Dear ___" in sẵn trên panel, laser điền tên vào chỗ trống.</p>
+        </div>
+        <div>
+          <div style="font-size:.65rem;letter-spacing:.15em;color:var(--gold);font-weight:600;text-transform:uppercase;margin-bottom:.5rem">Tầng 2 — Upsell Gift Set</div>
+          <p style="font-size:.85rem;color:var(--pearl);opacity:.8;line-height:1.7">Tag kim loại mạ vàng hồng, khắc Fiber laser, đính ruy-băng. Sau trở thành bookmark/charm kỷ niệm. 15–25K VNĐ/tag.</p>
+        </div>
+      </div>
+      <div>
+        <div class="card-grid cols-1" style="gap:1rem">
+          <div class="card" style="padding:1.5rem"><div class="card-label">Online</div><p>Tick "Khắc tên miễn phí" → nhập tên → preview auto → kho batch processing → ship. +2–3 phút/đơn.</p></div>
+          <div class="card highlight" style="padding:1.5rem"><div class="card-label">In-store — "Wow Moment"</div><p>Máy laser tại quầy → khắc trước mặt khách 10–30s → quay video đăng story → UGC tự nhiên.</p></div>
+          <div class="card" style="padding:1.5rem"><div class="card-label">Click & Collect — Last-minute</div><p>Đặt online 11h trưa → chọn tên → chiều ghé Flagship lấy 2 phút. Lead time 1 giờ.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-row fade-in" style="margin-top:3rem">
+      <div class="stat"><div class="stat-value">~250tr</div><div class="stat-label">Tổng đầu tư ban đầu<br>(3 máy + tag + phần mềm)</div></div>
+      <div class="stat"><div class="stat-value">&lt;1%</div><div class="stat-label">% budget 32 tỷ</div></div>
+      <div class="stat"><div class="stat-value">10–30s</div><div class="stat-label">Thời gian khắc/hộp</div></div>
+      <div class="stat"><div class="stat-value">∞</div><div class="stat-label">Brand exposure<br>(hộp không bao giờ bị vứt)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 10: KOL/KOC (DETAILED) ═══ -->
+<section id="kol">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Phần 10 — Chi tiết</p>
+    <h2 class="section-title fade-in">Owned Creator Network<br>— Dàn KOC "người nhà" tick xanh</h2>
+    <p class="section-lead fade-in">Booking KOL mua reach, owned KOC xây trust. Luxury cần trust — mà trust cần lặp lại liên tục. 1,5 tỷ/năm cho 5 nhân vật rẻ hơn một campaign booking đơn lẻ.</p>
+
+    <h3 class="fade-in" style="font-family:var(--font-display);font-size:1.4rem;margin-bottom:1.5rem">Năm Persona — mỗi người gánh một lý do mua</h3>
+    <div class="card-grid cols-5 fade-in">
+      <div class="card"><div class="card-number">01</div><h3>The Office Muse</h3><div class="card-label">Công năng</div><p>Nữ 26–32, văn phòng. Demo kiềm dầu 12h trong đời sống thật.</p></div>
+      <div class="card"><div class="card-number">02</div><h3>The Aesthete</h3><div class="card-label">Thẩm mỹ</div><p>Nữ 24–30, gu cao. Unboxing, flatlay. Gánh phần "sang."</p></div>
+      <div class="card"><div class="card-number">03</div><h3>The Ritual Keeper</h3><div class="card-label">Cảm xúc</div><p>Nữ 28–35, GRWM, morning ritual. Linh hồn "Daily Haute Couture."</p></div>
+      <div class="card highlight"><div class="card-number">04</div><h3>The Gift Advisor</h3><div class="card-label">Quà tặng ★</div><p>Nam 26–34. Nói chuyện với đàn ông về chọn quà. Gánh toàn bộ mùa lễ. Ưu tiên #1.</p></div>
+      <div class="card"><div class="card-number">05</div><h3>The Pro Artist</h3><div class="card-label">Chuyên môn</div><p>MUA bridal/sự kiện. Bảo chứng kỹ thuật, kết nối JoliPoli Couture.</p></div>
+    </div>
+
+    <div class="fade-in" style="margin-top:3rem">
+      <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:.5rem">Tiêu chí tuyển chọn</h3>
+      <div class="split" style="gap:2rem;margin-top:1rem">
+        <div>
+          <div style="font-size:.75rem;letter-spacing:.1em;color:var(--berry);font-weight:600;text-transform:uppercase;margin-bottom:.8rem">Hard Filter — loại ngay nếu thiếu</div>
+          <div style="font-size:.85rem;color:var(--muted);line-height:2">
+            ✓ Tick xanh ≥ 2/3 nền tảng (TikTok, FB, IG)<br>
+            ✓ Followers 30K–300K/nền tảng<br>
+            ✓ ER ≥ 4% (TikTok) / ≥ 2,5% (IG)<br>
+            ✓ Audience nữ ≥ 65%, 22–35 tuổi<br>
+            ✓ Lịch sử sạch: không scandal, hàng giả, drama
+          </div>
+        </div>
+        <div>
+          <div style="font-size:.75rem;letter-spacing:.1em;color:var(--berry);font-weight:600;text-transform:uppercase;margin-bottom:.8rem">Soft Filter — quyết định chọn ai</div>
+          <div style="font-size:.85rem;color:var(--muted);line-height:2">
+            ✓ Đời sống trung–cao cấp: café, du lịch, sự kiện<br>
+            ✓ Gu khớp Dear Jolie: nude, ngọc trai, tối giản<br>
+            ✓ Da dầu/hỗn hợp — dùng thật, review thật<br>
+            ✓ Lên hình tốt cận cảnh: da, môi, tay<br>
+            ✓ Sẵn sàng độc quyền ngành trang điểm
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-in" style="margin-top:3rem">
+      <h3 style="font-family:var(--font-display);font-size:1.3rem;margin-bottom:1rem">SOW — Khối lượng tháng</h3>
+      <table class="styled-table">
+        <thead><tr><th>Hạng mục</th><th>Tier A (Build)</th><th>Tier B (Contract)</th><th>Channel</th></tr></thead>
+        <tbody>
+          <tr><td>Video TikTok</td><td><strong>8</strong>/tháng</td><td><strong>4</strong>/tháng</td><td>TikTok — Discovery & Chốt đơn</td></tr>
+          <tr><td>Reels Instagram</td><td><strong>6</strong>/tháng</td><td><strong>3</strong>/tháng</td><td>IG — Thẩm mỹ & Định vị</td></tr>
+          <tr><td>Feed IG (editorial)</td><td><strong>4</strong>/tháng</td><td><strong>2</strong>/tháng</td><td>IG — Gallery, không bán hàng</td></tr>
+          <tr><td>Story IG</td><td><strong>12</strong>/tháng</td><td><strong>6</strong>/tháng</td><td>IG — Đời sống thật</td></tr>
+          <tr><td>Bài Facebook</td><td><strong>4</strong>/tháng</td><td><strong>2</strong>/tháng</td><td>FB — Chiều sâu, ≥1 bài dài 300 từ</td></tr>
+          <tr><td>Livestream</td><td><strong>4</strong> buổi ≥90'</td><td><strong>2</strong> buổi</td><td>TikTok/FB — Bán + review real-time</td></tr>
+          <tr><td>Quyền nội dung</td><td><strong>Vĩnh viễn</strong></td><td><strong>12 tháng</strong></td><td>Ads, website, in ấn</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:.8rem;color:var(--berry);font-style:italic;margin-top:.5rem">Quy tắc: 1 buổi quay → 1 TikTok + 1 Reels + 3 Story + 1 bài FB. Một lần sản xuất, bốn lần xuất hiện.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 11: AMORTALS (DETAILED) ═══ -->
+<section class="pearl-bg" id="amortals">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Phần 11 — Chi tiết</p>
+    <h2 class="section-title fade-in">Amortals Ecosystem<br>— Borrowed Awareness Engine</h2>
+    <p class="section-lead fade-in">Amortals VN đã có triệu followers, traffic megalive, tệp khách nữ 18–35. Dear Jolie không bắt đầu từ 0 — mà được giới thiệu trước hàng triệu người trong tuần đầu.</p>
+
+    <div class="card-grid cols-3 fade-in">
+      <div class="card">
+        <div class="card-label">Megalive Segment</div>
+        <h3>30–60 phút trong megalive Amortals</h3>
+        <p>Backdrop riêng, host riêng. "Người chị sang trọng" guest appearance. Traffic sẵn có, chi phí gần = 0.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Sample Insert</div>
+        <h3>50–100K inserts/năm</h3>
+        <p>Voucher/sample Dear Jolie trong kiện hàng Amortals. Chi phí thấp, reach cực cao, đúng tệp khách mục tiêu.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Cross-promo</div>
+        <h3>Ecosystem hai chiều</h3>
+        <p>Khách Dear Jolie nhận voucher Amortals cho phụ kiện. Hai brand bổ trợ, không cannibalize.</p>
+      </div>
+    </div>
+
+    <div class="fade-in" style="margin-top:2.5rem;padding:2rem;background:var(--white);border-radius:4px;border-left:3px solid var(--berry)">
+      <h4 style="font-family:var(--font-display);font-size:1.2rem;color:var(--berry);margin-bottom:.8rem">Ranh giới bất khả xâm phạm</h4>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.8;margin-bottom:.8rem">Dear Jolie không bao giờ xuất hiện "rẻ" trong context Amortals. Trong megalive: segment riêng, không đặt cạnh SP 100–300K. Đây là guest appearance luxury, không phải thêm sản phẩm vào giỏ hàng.</p>
+      <p style="font-size:.85rem;color:var(--muted);line-height:1.8"><strong style="color:var(--berry)">Timing:</strong> Không collab tuần launch. Launch riêng trước (T11/2026), build identity 4–6 tuần. Collab megalive từ Valentine/Tết — khi Dear Jolie đã có "gương mặt" riêng.</p>
+    </div>
+
+    <div class="stats-row fade-in">
+      <div class="stat"><div class="stat-value">500tr</div><div class="stat-label">Budget/năm<br>1,6% tổng ngân sách</div></div>
+      <div class="stat"><div class="stat-value">4–6</div><div class="stat-label">Lần collab megalive<br>trong 2027</div></div>
+      <div class="stat"><div class="stat-value">50–100K</div><div class="stat-label">Sample inserts<br>trong kiện Amortals</div></div>
+      <div class="stat"><div class="stat-value">0₫</div><div class="stat-label">Chi phí media<br>cho borrowed traffic</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 12: BUDGET (DETAILED) ═══ -->
+<section class="dark" id="budget">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Phần 12 — Chi tiết</p>
+    <h2 class="section-title fade-in" style="color:var(--white)">32 tỷ VNĐ<br>— WOM-first Framework</h2>
+    <p class="section-lead fade-in">Ads là "chất đốt" khởi động — WOM flywheel là engine thật. Khi flywheel quay, organic + earned media gánh phần lớn.</p>
+
+    <div class="budget-bar fade-in">
+      <div style="flex:15;background:var(--berry)" title="Ads 15 tỷ">Ads 47%</div>
+      <div style="flex:3.5;background:var(--rose)" title="Content 3.5 tỷ">Content</div>
+      <div style="flex:3.5;background:var(--gold);color:var(--ink)" title="Launch 3.5 tỷ">Launch</div>
+      <div style="flex:1.5;background:#8B6F8F" title="KOC 1.5 tỷ">KOC</div>
+      <div style="flex:3.5;background:#5C3D4E" title="Affiliate 3.5 tỷ">Affiliate</div>
+      <div style="flex:2;background:#4A3040" title="PR 2 tỷ">PR</div>
+      <div style="flex:2;background:#3A2535" title="Live 2 tỷ">Live</div>
+      <div style="flex:1;background:rgba(255,255,255,.1)" title="Collab + War Chest 1 tỷ"></div>
+    </div>
+
+    <table class="styled-table fade-in">
+      <thead><tr><th>Hạng mục</th><th>Budget</th><th>%</th><th>Logic WOM-first</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Paid Ads</strong></td><td style="color:var(--gold);font-weight:600">15 tỷ</td><td>46,9%</td><td>"Spark" khởi động WOM, Q1 spend aggressive rồi giảm dần khi organic lên</td></tr>
+        <tr><td><strong>Content Production</strong></td><td>3,5 tỷ</td><td>10,9%</td><td>Hero video, lookbook, editorial — "nguyên liệu" để WOM có gì share</td></tr>
+        <tr><td><strong>Launch Campaign</strong></td><td>3,5 tỷ</td><td>10,9%</td><td>Event + seeding 1.000 Gift Box khắc tên cho KOC/media + seasonal drops</td></tr>
+        <tr><td><strong>KOC tick xanh</strong></td><td>1,5 tỷ</td><td>4,7%</td><td>5 nhân vật owned, content liên tục 12 tháng, tài sản kênh</td></tr>
+        <tr><td><strong>Affiliate</strong></td><td>3,5 tỷ</td><td>10,9%</td><td>Biến phí — affiliate vừa bán vừa tạo review = WOM</td></tr>
+        <tr><td><strong>PR + Events</strong></td><td>2 tỷ</td><td>6,3%</td><td>PR burst launch + 2–3 beauty events. Earned media amplifier</td></tr>
+        <tr><td><strong>Livestream</strong></td><td>2 tỷ</td><td>6,3%</td><td>Host, Live AI, setup luxury, ads đẩy live. 12–18h/ngày</td></tr>
+        <tr><td><strong>Amortals Collab</strong></td><td>500 triệu</td><td>1,6%</td><td>Content collab, sample insert, megalive segment</td></tr>
+        <tr><td><strong>War Chest</strong></td><td>500 triệu</td><td>1,6%</td><td>Seasonal CPM spike, cơ hội viral cần capitalize 24h</td></tr>
+      </tbody>
+    </table>
+
+    <div class="fade-in" style="margin-top:2.5rem">
+      <h3 style="color:var(--white);font-family:var(--font-display);font-size:1.3rem;margin-bottom:1.5rem">Ads phân bổ nội bộ — 15 tỷ</h3>
+      <div class="card-grid cols-4">
+        <div class="card"><div class="card-number" style="font-size:1.8rem">8 tỷ</div><div class="card-label">TikTok Ads (53%)</div><p>Spark video viral, đẩy KOC/UGC lên FYP, retargeting</p></div>
+        <div class="card"><div class="card-number" style="font-size:1.8rem">4 tỷ</div><div class="card-label">Meta Ads (27%)</div><p>Landing page conversion, retarget, seasonal TA2 nam</p></div>
+        <div class="card"><div class="card-number" style="font-size:1.8rem">1.5 tỷ</div><div class="card-label">Shopee Ads (10%)</div><p>Bottom-funnel, 11.11/12.12 mega campaigns</p></div>
+        <div class="card"><div class="card-number" style="font-size:1.8rem">1.5 tỷ</div><div class="card-label">Google Ads (10%)</div><p>Brand protection + "quà tặng bạn gái" keywords</p></div>
+      </div>
+    </div>
+
+    <div class="fade-in" style="margin-top:3rem">
+      <h3 style="color:var(--white);font-family:var(--font-display);font-size:1.3rem;margin-bottom:1rem">Doanh thu 150 tỷ GMV — 3 kênh</h3>
+      <div class="card-grid cols-3">
+        <div class="card"><div class="card-number">60%</div><h3>TikTok</h3><p><strong style="color:var(--gold)">90 tỷ GMV</strong><br>Ads + affiliate + live + organic. ROAS tổng 5,6x.</p></div>
+        <div class="card"><div class="card-number">20%</div><h3>FB + Google</h3><p><strong style="color:var(--gold)">30 tỷ GMV</strong><br>Landing page direct sale. ROAS 5x.</p></div>
+        <div class="card"><div class="card-number">20%</div><h3>B2B Key Account</h3><p><strong style="color:var(--gold)">30 tỷ GMV</strong><br>Lam Thảo, TGSK, Hasaki, Guardian. ROAS 20x.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 13-14: TEAM + RISK (condensed) ═══ -->
+<section id="team">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Vận hành & Rủi ro</p>
+    <h2 class="section-title fade-in">Tinh gọn dưới 15 nhân sự<br>— 70% In-house, 30% Agency</h2>
+
+    <div class="fade-in" style="margin:2rem 0;padding:2rem;background:var(--cream);border-radius:4px;text-align:center">
+      <div style="font-family:var(--font-display);font-size:1rem;color:var(--berry);font-weight:600;margin-bottom:1.5rem">SƠ ĐỒ TỔ CHỨC</div>
+      <div style="font-family:var(--font-body);font-size:.8rem;color:var(--muted);line-height:2.4;white-space:pre;text-align:center;overflow-x:auto">
+FOUNDER (CEO)
+        │
+  ┌─────┴─────┐
+Amortals VN    <strong style="color:var(--berry)">DEAR JOLIE</strong>
+(shared svc)        │
+           <strong style="color:var(--berry)">Brand / Commercial Director</strong>
+                    │
+        ┌───────────┼───────────┐
+    <strong>SALE</strong>         <strong>MARKETING</strong>     <strong>PERFORMANCE</strong>
+   B2B &amp; KA    Brand &amp; PR    Ads · Live · E-com
+    2–3 HC       3 HC + agency   4 HC + agency</div>
+    </div>
+
+    <div class="card-grid cols-3 fade-in">
+      <div class="card">
+        <div class="card-label">Phòng Sale</div>
+        <h3>B2B & Key Account</h3>
+        <p><strong>2–3 nhân sự:</strong> Trưởng phòng + Sales Exec (sỉ) + Sales Exec MT (từ Q3). KPI: 30 tỷ B2B, listing ≥ 2 chuỗi MT.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Phòng Marketing</div>
+        <h3>Brand & PR</h3>
+        <p><strong>3 in-house + agency:</strong> Trưởng phòng + Brand Exec + Designer. Agency: PR retainer + Production project-based.</p>
+      </div>
+      <div class="card">
+        <div class="card-label">Phòng Performance</div>
+        <h3>Ads · Live · E-com</h3>
+        <p><strong>4 in-house + agency:</strong> Trưởng phòng + Perf Exec + E-com Ops + Live Coordinator. Agency: media buying optimization.</p>
+      </div>
+    </div>
+
+    <div class="stats-row fade-in">
+      <div class="stat"><div class="stat-value">10–11</div><div class="stat-label">Nhân sự in-house</div></div>
+      <div class="stat"><div class="stat-value">3–4</div><div class="stat-label">Agency partners</div></div>
+      <div class="stat"><div class="stat-value">5–7 tỷ</div><div class="stat-label">Tổng chi nhân sự/năm</div></div>
+      <div class="stat"><div class="stat-value">3,3–4,7%</div><div class="stat-label">% doanh thu<br>(dưới cap 6,5–7%)</div></div>
+    </div>
+
+    <h3 class="fade-in" style="font-family:var(--font-display);font-size:1.4rem;margin:3rem 0 1.5rem">Ma trận rủi ro — Top 5</h3>
+    <div class="fade-in">
+      <div class="risk-item">
+        <div class="risk-badge critical">CRITICAL</div>
+        <div class="risk-content"><h4>Conversion rate thấp ở 800K trên TikTok Shop</h4><p>Khách quen 200–400K, không impulse buy 800K. Plan B: SKU entry 350–450K, BNPL, Gift Set perceived value.</p></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge critical">CRITICAL</div>
+        <div class="risk-content"><h4>B2B listing delay — 30 tỷ có thể rơi sang 2028</h4><p>Ưu tiên sỉ (Lam Thảo, TGSK) barrier thấp. Tăng ad spend Q3–Q4 từ War Chest nếu thiếu.</p></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge high">HIGH</div>
+        <div class="risk-content"><h4>Narrative "brand TQ đội lốt Hàn/Việt"</h4><p>Crisis script sẵn: "Mỹ phẩm VN bởi nhà mốt VN JoliPoli, R&D SX tại Hàn Quốc." PR proactive về di sản NTK.</p></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge high">HIGH</div>
+        <div class="risk-content"><h4>Negative WOM — sản phẩm không đạt kỳ vọng</h4><p>Test 50–100 người thật trước launch. QC nghiêm ngặt lot đầu. Response team 24h. Đổi trả mạnh tay.</p></div>
+      </div>
+      <div class="risk-item">
+        <div class="risk-badge medium">MEDIUM</div>
+        <div class="risk-content"><h4>Recruit Performance Head không đạt</h4><p>Tuyển từ T9/2026, nhiều nguồn. Backup: agency performance đỡ 3 tháng.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SECTION 15: NEXT STEPS ═══ -->
+<section class="dark">
+  <div class="container">
+    <p class="section-eyebrow fade-in">Bước tiếp theo</p>
+    <h2 class="section-title fade-in" style="color:var(--white)">10 hành động trước ngày launch</h2>
+
+    <div class="timeline fade-in">
+      <div class="timeline-item"><span class="time">T9/2026</span><h4 style="color:var(--white)">Finalize SKU & Pricing</h4><p>Chốt Hero SKU, giá chính thức, brief bao bì "Engraving Zone."</p></div>
+      <div class="timeline-item"><span class="time">T9/2026</span><h4 style="color:var(--white)">Recruit Core Team</h4><p>3 trưởng phòng + 3–4 core members. Đặc biệt Performance Head.</p></div>
+      <div class="timeline-item"><span class="time">T10/2026</span><h4 style="color:var(--white)">Audit & Chọn KOC</h4><p>200 hồ sơ → phỏng vấn 12 → chốt 4. Setup hợp đồng thử việc.</p></div>
+      <div class="timeline-item"><span class="time">T10/2026</span><h4 style="color:var(--white)">Build D2C + Shop TMĐT</h4><p>Website luxury, TikTok Shop, Shopee Mall. Tích hợp khắc tên.</p></div>
+      <div class="timeline-item"><span class="time">T10–T11/2026</span><h4 style="color:var(--white)">Content Kho</h4><p>30 videos + 50 ảnh editorial. Hero video, lookbook. Agency production.</p></div>
+      <div class="timeline-item"><span class="time">T11/2026</span><h4 style="color:var(--white)">Đặt máy laser + Setup</h4><p>3 máy (2 kho + 1 Flagship). Phần mềm batch processing.</p></div>
+      <div class="timeline-item"><span class="time">Cuối T11/2026</span><h4 style="color:var(--white)">LAUNCH — "Moment Zero"</h4><p>1.000 Gift Box khắc tên → 500 KOC + 200 media + 100 celeb + 200 VIP JoliPoli. PR burst full mặt trận.</p></div>
+      <div class="timeline-item"><span class="time">T12/2026</span><h4 style="color:var(--white)">Tiếp cận B2B</h4><p>Lam Thảo, TGSK. Dùng data launch + social proof leverage.</p></div>
+      <div class="timeline-item"><span class="time">Q1/2027</span><h4 style="color:var(--white)">Valentine + 8/3 Campaigns</h4><p>Seasonal Gifting Engine full throttle. TA2 male targeting. Gift Set bundles.</p></div>
+      <div class="timeline-item"><span class="time">Q1–Q2/2027</span><h4 style="color:var(--white)">Mở Flagship Store</h4><p>Q2 HCM. Café + showroom + khắc laser tại chỗ. "Gift Destination."</p></div>
+    </div>
+
+    <div class="fade-in" style="text-align:center;margin-top:3rem;padding:3rem;border:1px solid rgba(201,166,107,.2);border-radius:4px">
+      <p style="font-family:var(--font-display);font-size:1.6rem;font-style:italic;color:var(--white);line-height:1.4">"Dear Jolie — A Gift You Deserve"</p>
+      <p style="font-size:.8rem;color:var(--muted);margin-top:1rem;letter-spacing:.1em">Haute Couture Ritual Makeup · Launch T11/2026 · Target 150 tỷ GMV</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Dear Jolie by JoliPoli · Tài liệu chiến lược nội bộ v3.0 · T8/2026</p>
+</footer>
+
+<script>
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.fade-in,.fade-in-left,.fade-in-right').forEach(el => observer.observe(el));
+
+// Nav scroll
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Smooth nav links
+document.querySelectorAll('nav a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
